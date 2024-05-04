@@ -16,3 +16,8 @@ Modifikasi port perlu dilakukan pada 2 bagian yaitu:
     <img src = "images/22_client.png"><br>
 
 **Explanation** - Kedua bagian ini harus sama-sama diubah agar client dan server dapat berkomunikasi melalui port yang sama. Jika port pada client dan server tidak sama, maka client tidak akan dapat terhubung ke server. Pada kedua file, host untuk berkomunikasi defined pada bagian main function, tetapi untuk `server.rs` tidak terlihat menggunakan protocol Websocket karena tidak terdapat `ws://` pada bagian awal url pada listener. Selain itu, server juga menggunakan `TcpListener` yang berarti protokol yang digunakan adalah TCP.<br><br>
+
+## Experiment 2.3: Small changes, add IP and Port
+<img src = "images/23.png">
+
+**Explanation** - Pada gambar diatas, saya telah menguji server dan client yang telah ditambahkan informasi Hostname,IP, dan port pada sisi client dan server. Untuk mendapatkan Hostname saya menggunakan package `gethostname` dan saya menambahkan variabel `hostname = gethostname().into_string().unwrap_or_else(|_| "unknown".to_string());` yang saya gunakan pada bagian `println!` untuk menampilkan Hostname.
